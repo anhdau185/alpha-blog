@@ -1,0 +1,29 @@
+<h1>Showing all articles</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titles</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td>
+          <a href="/articles/<%= article.id %>"><%= article.id %></a>
+        </td>
+        <td>
+          <a href="/articles/<%= article.id %>"><%= article.title %></a>
+        </td>
+        <td>
+          <p><%= article.description %></p>
+        </td>
+        <td>
+          <span>Placeholder</span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
