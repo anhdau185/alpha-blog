@@ -1,8 +1,8 @@
 <h1>Showing all articles</h1>
+<a href="/articles/new">&plus; New article</a>
 <table>
   <thead>
     <tr>
-      <th>ID</th>
       <th>Titles</th>
       <th>Description</th>
       <th>Actions</th>
@@ -11,9 +11,6 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td>
-          <a href="/articles/<%= article.id %>"><%= article.id %></a>
-        </td>
         <td>
           <a href="/articles/<%= article.id %>"><%= article.title %></a>
         </td>
