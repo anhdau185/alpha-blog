@@ -1,5 +1,17 @@
 <h1>Create new article</h1>
 <a href="/articles">&times; Cancel</a>
+
+<% if @article.errors.any? %>
+  <div>
+    <h3>Failed to save the article. The following error(s) occurred:</h3>
+    <ul>
+      <% @article.errors.full_messages.each do |error_msg| %>
+        <li><%= error_msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with scope: :article, url: articles_path, local: true do |f| %>
   <div>
     <div><%= f.label :title %></div>
