@@ -1,10 +1,11 @@
 <h1>All articles</h1>
 <div>
-  <a href="/">&lt; Go to homepage</a>
+  <a href="<%= root_path %>">&lt; Go to homepage</a>
 </div>
 <div>
-  <a href="/articles/new">&plus; New article</a>
+  <a href="<%= new_article_path %>">&plus; New article</a>
 </div>
+
 <div>
   <table>
     <thead>
@@ -18,11 +19,13 @@
       <% @articles.each do |article| %>
         <tr>
           <td>
-            <a href="/articles/<%= article.id %>"><%= article.title %></a>
+            <%= link_to article.title, article_path(article) %>
           </td>
           <td>
             <p><%= article.description %></p>
           </td>
+          <td><%= link_to 'View', article_path(article) %></td>
+          <td><%= link_to 'Edit', edit_article_path(article) %></td>
           <td><%= link_to 'Delete', article_path(article), method: :delete %></td>
         </tr>
       <% end %>
