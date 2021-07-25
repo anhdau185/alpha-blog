@@ -1,0 +1,27 @@
+<h1>Edit article</h1>
+<a href="/articles">&times; Cancel</a>
+
+<% if @article.errors.any? %>
+  <div>
+    <h3>Failed to save the article. The following error(s) occurred:</h3>
+    <ul>
+      <% @article.errors.full_messages.each do |error_msg| %>
+        <li><%= error_msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @article, local: true do |f| %>
+  <div>
+    <div><%= f.label :title %></div>
+    <div><%= f.text_field :title %></div>
+  </div>
+  <div>
+    <div><%= f.label :description %></div>
+    <div><%= f.text_area :description %></div>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
